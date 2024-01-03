@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import LinkButton from "./common/LinkButton";
 import routes from "../routes";
 
 const MenuBar = () => {
@@ -10,11 +11,7 @@ const MenuBar = () => {
 				routes
 					.filter((route) => route.showInMenu)
 					.map(({ id, displayName, path }) => (
-						<li key={id} title={id} className={`border-b-2 ${currentPath === path ? 'border-black' : 'border-transparent'} hover:border-black`}>
-							<Link to={path!} className="flex items-center gap-1">
-								{displayName}
-							</Link>
-						</li>
+						<LinkButton key={id} name={displayName} to={path!} className={`border-b-2 ${currentPath === path ? 'border-black' : 'border-transparent'} hover:border-black`} />
 					))
 			}
 		</ul>

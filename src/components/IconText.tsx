@@ -10,7 +10,7 @@ const IconText: React.FC<Props> = ({ Icon, text }) => {
 	return (
 		<>
 			<Icon className="text-xl" />
-			<span className="hidden sm:block">{ text }</span>
+			<span>{ text }</span>
 		</>
 	);
 }
