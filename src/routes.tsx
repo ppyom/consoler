@@ -1,8 +1,9 @@
 import { ReactNode } from "react";
 import { RouteObject } from "react-router-dom";
+import { FaPlusSquare } from "react-icons/fa";
+import { FaList } from "react-icons/fa6";
 import Home from "./pages/Home";
-import {FaPlusSquare} from "react-icons/fa";
-import {FaList} from "react-icons/fa6";
+import NewConsole from "./pages/NewConsole";
 import IconText from "./components/IconText";
 
 type RouteType = { displayName?: string | ReactNode, showInMenu?: boolean }
@@ -18,7 +19,7 @@ const routes: (RouteObject & RouteType)[]  = [
 		id: 'New',
 		displayName: <IconText Icon={FaPlusSquare} text="New Console" />,
 		path: '/new',
-		element: <></>,
+		element: <NewConsole />,
 		showInMenu: true,
 	},
 	{
