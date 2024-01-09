@@ -6,7 +6,9 @@ import Home from "./pages/Home";
 import NewConsole from "./pages/NewConsole";
 import IconText from "./components/IconText";
 
-type RouteType = { displayName?: string | ReactNode, showInMenu?: boolean }
+type RouteType = { displayName?: string | ReactNode, showInMenu?: boolean };
+
+const SiteName = 'Console Maker';
 
 const routes: (RouteObject & RouteType)[]  = [
 	{
@@ -37,3 +39,4 @@ const routes: (RouteObject & RouteType)[]  = [
 ];
 
 export default routes;
+export { SiteName };
