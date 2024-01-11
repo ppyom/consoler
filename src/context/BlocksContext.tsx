@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useMemo, useState } from "react";
 import { ConsoleBlock } from "../components/ConsoleEditor/types";
+import storage from "../api/Storage";
 
 type BlocksType = ConsoleBlock[][];
 
@@ -25,9 +26,9 @@ const BlocksContext = createContext<ContextProps>({
 	currentBlock: undefined,
 });
 
-const BlocksProvider = ({ children }: { children: React.ReactNode }) => {
+const BlocksProvider = ({ id, children }: { id: string, children: React.ReactNode }) => {
 	const [current, setCurrent] = useState<string | undefined>(undefined);
-	const [blocks, setBlocks] = useState<BlocksType>([[]]);
+	const [blocks, setBlocks] = useState<BlocksType>(storage.getItem(id));
 	const addBlock = (type: 'block' | 'line', line?: number) => {
 		const newBlock: ConsoleBlock = {
 			id: new Date().getTime().toString(),

@@ -3,14 +3,20 @@ import Editor from "./Editor";
 import Viewer from "./Viewer";
 import ConsoleText from "./ConsoleText";
 
-const ConsoleEditor = () => {
+interface Props {
+	id?: string;
+}
+
+const ConsoleEditor = ({ id }: Props) => {
+	let consoleId = id || new Date().getTime().toString();
+
 	return (
-		<BlocksProvider>
+		<BlocksProvider id={consoleId}>
 			<div className="flex flex-col md:flex-row">
 				<Viewer />
 				<Editor />
 			</div>
-			<ConsoleText />
+			<ConsoleText id={consoleId} />
 		</BlocksProvider>
 	);
 }

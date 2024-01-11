@@ -1,7 +1,12 @@
 import type { ConsoleBlock } from "./types";
 import { useBlocksContext } from "../../context/BlocksContext";
+import storage from "../../api/Storage";
 
-const ConsoleText = () => {
+interface Props {
+	id: string;
+}
+
+const ConsoleText = ({ id }: Props) => {
 	const { blocks } = useBlocksContext();
 	const makeTextString = () => blocks.map((line) => line.map((item) => `%c${item.text!.replace(/"/g, '\\"').replace(/ /g, '\\ ')}`).join('')).join('\\n');
 	const makeStyleString = () => blocks.map((line) => line.map((item) => `"${styleFormatter(item)}"`).join(',')).join(',');
@@ -17,10 +22,15 @@ const ConsoleText = () => {
 		;
 	}
 
+	const handleSave = () => {
+		storage.saveItem(id, blocks);
+	}
+
 	return (
 		<div>
 			<div>{ consoleText() }</div>
 			<button className="w-full bg-zinc-100 rounded-lg" onClick={copy}>Copy</button>
+			<button className="w-full bg-zinc-100 rounded-lg" onClick={handleSave}>Save</button>
 		</div>
 	)
 }
