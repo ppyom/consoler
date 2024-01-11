@@ -1,4 +1,4 @@
-import { ConsoleBlock } from "./types";
+import type { ConsoleBlock } from "./types";
 import { useBlocksContext } from "../../context/BlocksContext";
 
 const ConsoleText = () => {

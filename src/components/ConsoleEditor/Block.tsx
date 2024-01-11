@@ -1,4 +1,4 @@
-import { ConsoleBlock } from "./types";
+import type { ConsoleBlock } from "./types";
 
 interface BlockProps extends ConsoleBlock {
 	id: string;
