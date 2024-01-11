@@ -29,6 +29,11 @@ class Storage {
 		}
 	}
 
+	deleteItem(id: string) {
+		delete this.db[id];
+		localStorage.setItem('console-maker-blocks', JSON.stringify(this.db));
+	}
+
 	getTitle(id: string): string {
 		return id in this.db ? this.db[id].title : '';
 	}

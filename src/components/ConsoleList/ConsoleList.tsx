@@ -1,13 +1,22 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import ConsoleItem from "./ConsoleItem";
 import storage from "../../api/Storage";
-import { toDateTimeString } from "../../util/date";
 
 interface Props {
 	size?: number;
 }
 
 const ConsoleList = ({ size }: Props) => {
-	const items = storage.getItems();
+	const [items, setItems] = useState(() => storage.getItems());
+	const handleDeleteItem = (id: string) => {
+		storage.deleteItem(id);
+		setItems(prev => {
+			const obj = {...prev};
+			delete obj[id];
+			return obj;
+		});
+	}
+
 	return (
 		<div className="mt-2">
 			<ul className={`grid ${size && 'sm:grid-cols-2 md:grid-cols-4'} gap-1.5`}>
@@ -16,12 +25,7 @@ const ConsoleList = ({ size }: Props) => {
 						.sort((a, b) => items[b].modifiedTime - items[a].modifiedTime)
 						.slice(0, size)
 						.map(k => (
-							<li key={k} title={ items[k].title }>
-								<Link className={`flex items-center justify-between ${size && 'sm:flex-col sm:text-center'} p-2 border-[1px] border-zinc-300 rounded-lg overflow-hidden hover:bg-zinc-200`} to={`/edit/${k}`}>
-									<div className={`flex-1 ${size && 'sm:flex-none'} max-w-sm w-full text-lg truncate`}>{ items[k].title }</div>
-									<div className="text-sm text-zinc-500">{ toDateTimeString(items[k].modifiedTime) }</div>
-								</Link>
-							</li>
+							<ConsoleItem key={k} id={k} {...items[k]} type={size ? 'album' : 'list'} deleteItem={handleDeleteItem} />
 						))
 				}
 			</ul>
