@@ -34,8 +34,8 @@ class Storage {
 		localStorage.setItem('console-maker-blocks', JSON.stringify(this.db));
 	}
 
-	getTitle(id: string): string {
-		return id in this.db ? this.db[id].title : '';
+	getTitle(id: string): string | undefined {
+		return id in this.db ? this.db[id].title : undefined;
 	}
 
 	saveItem(id: string, blocks: ConsoleBlock[][], title?: string) {
