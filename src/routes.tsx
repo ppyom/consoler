@@ -4,6 +4,7 @@ import { FaPlusSquare } from "react-icons/fa";
 import { FaList } from "react-icons/fa6";
 import Home from "./pages/Home";
 import NewConsole from "./pages/NewConsole";
+import EditConsole from "./pages/EditConsole";
 import IconText from "./components/IconText";
 
 type RouteType = { displayName?: string | ReactNode, showInMenu?: boolean };
@@ -27,7 +28,7 @@ const routes: (RouteObject & RouteType)[]  = [
 	{
 		id: 'Edit',
 		path: '/edit/:id',
-		element: <></>,
+		element: <EditConsole />,
 	},
 	{
 		id: 'List',
