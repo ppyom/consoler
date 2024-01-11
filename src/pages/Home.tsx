@@ -1,6 +1,7 @@
 import React from "react";
 import PageLayout from "../components/layouts/PageLayout";
 import LinkButton from "../components/common/LinkButton";
+import ConsoleList from "../components/ConsoleList/ConsoleList";
 import routes, { SiteName } from "../routes";
 
 const Home = () => {
@@ -18,7 +19,8 @@ const Home = () => {
 						))
 				}
 			</div>
-			{/* 최근 저장한 Console 목록 출력!! */}
+			<h3 className="text-xl font-bold mt-4">최근 수정 목록</h3>
+			<ConsoleList size={8} />
 		</PageLayout>
 	);
 }
