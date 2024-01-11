@@ -5,6 +5,7 @@ import { FaList } from "react-icons/fa6";
 import Home from "./pages/Home";
 import NewConsole from "./pages/NewConsole";
 import EditConsole from "./pages/EditConsole";
+import ListConsole from "./pages/ListConsole";
 import IconText from "./components/IconText";
 
 type RouteType = { displayName?: string | ReactNode, showInMenu?: boolean };
@@ -34,7 +35,7 @@ const routes: (RouteObject & RouteType)[]  = [
 		id: 'List',
 		displayName: <IconText Icon={FaList} text="Console List" />,
 		path: '/list',
-		element: <></>,
+		element: <ListConsole />,
 		showInMenu: true,
 	}
 ];
