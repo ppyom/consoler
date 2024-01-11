@@ -2,8 +2,10 @@ import type { ConsoleBlock } from "../components/ConsoleEditor/types";
 
 const STORAGE_KEY = 'console-maker-blocks';
 
+interface ItemsType { [id: string]: ConsoleBlock[][] }
+
 class Storage {
-	private db: { [id: string]: ConsoleBlock[][] };
+	private db: ItemsType;
 	constructor() {
 		const str = localStorage.getItem(STORAGE_KEY) || '{}';
 		this.db = JSON.parse(str);
@@ -13,7 +15,7 @@ class Storage {
 		if(id in this.db) {
 			return this.db[id];
 		} else {
-			return [[]];
+			return [];
 		}
 	}
 

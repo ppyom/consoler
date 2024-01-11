@@ -27,10 +27,10 @@ const ConsoleText = ({ id }: Props) => {
 	}
 
 	return (
-		<div>
+		<div className="flex flex-col gap-1">
 			<div>{ consoleText() }</div>
-			<button className="w-full bg-zinc-100 rounded-lg" onClick={copy}>Copy</button>
-			<button className="w-full bg-zinc-100 rounded-lg" onClick={handleSave}>Save</button>
+			<button className="w-full bg-zinc-100 p-1 rounded-lg hover:bg-zinc-200" onClick={handleSave}>Save</button>
+			<button className="w-full bg-zinc-100 p-1 rounded-lg hover:bg-zinc-200" onClick={copy}>Copy</button>
 		</div>
 	)
 }
