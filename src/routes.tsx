@@ -9,7 +9,7 @@ import IconText from "./components/IconText";
 
 type RouteType = { displayName?: string | ReactNode, showInMenu?: boolean };
 
-const SiteName = 'Console Maker';
+const SiteName = 'Consoler';
 
 const routes: (RouteObject & RouteType)[]  = [
 	{
