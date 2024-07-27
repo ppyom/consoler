@@ -9,13 +9,11 @@
 ## 설계
 
 <aside>
-💡 이전에 사용했던 계정([Cattamoo](https://github.com/Cattamoo))에서 만들었던 `**Colorful Log Maker**` 프로젝트의 부족한 점을 보완하여 만들어보는 프로젝트!
+💡 이전에 만들어봤던 프로젝트의 부족한 점을 보완하여 만들어보는 프로젝트
 
 </aside>
 
-### Colorful Log Maker 프로젝트
-
-[GitHub](https://github.com/Cattamoo/colorful-log-maker) | [Demo](https://cattamoo.github.io/colorful-log-maker/)
+### 이전 프로젝트
 
 #### 부족한 점
 
