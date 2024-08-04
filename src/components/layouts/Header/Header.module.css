@@ -1,2 +1,17 @@
 .header {
+  @apply w-full bg-base-ivory shadow-lg shadow-gray-200;
+  & > div {
+    @apply max-w-screen-xl mx-auto px-2;
+    @apply flex justify-between items-center;
+    & > a {
+      @apply flex items-center gap-1;
+      img {
+        @apply w-[50px] h-[50px];
+      }
+      h1 {
+        @apply text-brand-secondary text-xl;
+        @apply overflow-hidden w-0 md:w-[105px] transition-[width] duration-500;
+      }
+    }
+  }
 }
