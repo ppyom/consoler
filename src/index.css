@@ -39,3 +39,7 @@ p {
 p.sm {
   @apply text-sm text-gray-500;
 }
+
+#root {
+  @apply flex flex-col justify-between min-h-screen;
+}
