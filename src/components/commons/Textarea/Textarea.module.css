@@ -1,0 +1,24 @@
+.textarea {
+  @apply flex flex-col sm:flex-row sm:items-center;
+  label {
+    @apply flex-[1] sm:max-w-32;
+  }
+  textarea {
+    @apply flex-[3] p-2;
+    @apply resize-none outline-none border-2 rounded-md;
+    @apply transition-colors;
+    &::placeholder,
+    &::-webkit-input-placeholder {
+      @apply text-gray-300;
+    }
+    &:focus {
+      @apply border-brand-primary;
+    }
+    &:disabled {
+      @apply bg-gray-100 border-gray-500;
+    }
+  }
+}
+:global(textarea:not(:placeholder-shown)) {
+  @apply border-shade-primary;
+}
