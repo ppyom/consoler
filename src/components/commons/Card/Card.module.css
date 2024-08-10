@@ -1,6 +1,6 @@
 .card {
   @apply flex justify-between items-center p-4;
-  @apply rounded-lg shadow-md;
+  @apply rounded-lg shadow-md bg-base-white;
   .info {
     @apply flex flex-col justify-between;
     .title {
