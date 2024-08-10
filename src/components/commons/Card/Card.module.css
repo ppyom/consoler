@@ -1,0 +1,28 @@
+.card {
+  @apply flex justify-between items-center p-4;
+  @apply rounded-lg shadow-md;
+  .info {
+    @apply flex flex-col justify-between;
+    .title {
+      @apply text-lg text-base-black;
+    }
+    .date {
+      @apply text-sm text-gray-400;
+    }
+  }
+  .btnGroup {
+    @apply flex flex-col justify-between gap-1;
+    button {
+      @apply flex justify-center items-center;
+      @apply rounded-full w-10 h-10;
+    }
+  }
+  &.line {
+    .description {
+      @apply hidden;
+    }
+    .btnGroup {
+      @apply flex-row;
+    }
+  }
+}
