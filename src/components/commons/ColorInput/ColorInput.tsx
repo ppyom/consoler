@@ -23,6 +23,9 @@ const ColorInput: React.FC<ColorInputProps> = ({
 
   const handleCloseColorPicker = useCallback(
     ({ target }: MouseEvent) => {
+      if (!(target instanceof HTMLElement)) {
+        return;
+      }
       if (!hexPattern.test(_color)) {
         _setColor(color);
       }
