@@ -1,2 +1,33 @@
 .viewer {
+  @apply overflow-hidden;
+  .blocks {
+    @apply w-full h-full overflow-auto;
+    .line {
+      @apply flex items-baseline align-baseline;
+      .block {
+        @apply ring-2 ring-inset ring-gray-300;
+        &.active {
+          @apply ring-brand-secondary;
+        }
+        &:empty {
+          @apply border-2 border-gray-300 h-4;
+          &.active {
+            @apply border-brand-secondary;
+          }
+        }
+      }
+      & > button {
+        @apply self-stretch mr-4;
+      }
+    }
+    & > button {
+      @apply w-full;
+    }
+  }
+  button {
+    @apply bg-brand-danger;
+    &:hover {
+      @apply bg-shade-danger;
+    }
+  }
 }
