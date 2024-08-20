@@ -4,7 +4,7 @@ import type { ConsoleType } from '../types/console.ts';
 const STORAGE_KEY = 'consoler';
 
 const getByStorage = (): { [key: string]: ConsoleType } =>
-  JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+  JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
 const saveToStorage = () =>
   localStorage.setItem(STORAGE_KEY, JSON.stringify(consoleList));
 
