@@ -29,9 +29,16 @@ const ConsoleProvider = ({ id, children }: ProviderProps) => {
     id: string;
   }>();
 
+  const updateConsoleContents = useCallback(
+    (console: ConsoleType) => {
+      updateConsole(targetId, { ...console });
+    },
+    [targetId],
+  );
+
   const blocks = useMemo(() => consoleItem.console, [consoleItem.console]);
   const setBlocks = useCallback(
-    (fn) => {
+    (fn: (prev: ConsoleBlock[][]) => ConsoleBlock[][]) => {
       const updated = {
         ...consoleItem,
         console: fn(blocks),
@@ -39,7 +46,7 @@ const ConsoleProvider = ({ id, children }: ProviderProps) => {
       setConsoleItem(updated);
       updateConsoleContents(updated);
     },
-    [consoleItem.console],
+    [blocks, consoleItem, updateConsoleContents],
   );
 
   const setCurrentBlock = (line: number, id: string) => {
@@ -97,11 +104,8 @@ const ConsoleProvider = ({ id, children }: ProviderProps) => {
   const removeLine = (line: number) => {
     setBlocks((prev) => prev.filter((_, idx) => line !== idx));
   };
-  const updateInformation = (title, description) => {
+  const updateInformation = (title: string, description: string) => {
     updateConsoleContents({ ...consoleItem, title, description });
-  };
-  const updateConsoleContents = (console) => {
-    updateConsole(targetId, { ...console });
   };
 
   return (
@@ -113,6 +117,7 @@ const ConsoleProvider = ({ id, children }: ProviderProps) => {
         clearCurrentBlock,
         removeCurrentBlock,
         addLine,
+        removeLine,
         addBlock,
         updateBlock,
         updateInformation,
