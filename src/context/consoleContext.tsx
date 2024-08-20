@@ -8,12 +8,43 @@ import React, {
 import { getConsole, updateConsole } from '../storages/consoleStorage.ts';
 import type { ConsoleBlock, ConsoleType } from '../types/console.ts';
 
+interface ContextProps {
+  consoleItem: ConsoleType;
+  blocks: ConsoleBlock[][];
+  current?: { line: number; id: string };
+  setCurrentBlock: (line: number, id: string) => void;
+  clearCurrentBlock: () => void;
+  removeCurrentBlock: () => void;
+  addLine: () => void;
+  removeLine: (line: number) => void;
+  addBlock: (line: number) => void;
+  updateBlock: (line: number, id: string, updated: ConsoleBlock) => void;
+  updateInformation: (title: string, description: string) => void;
+}
+
 interface ProviderProps {
   id: string;
   children: React.ReactNode;
 }
 
-const ConsoleContext = createContext({});
+const ConsoleContext = createContext<ContextProps>({
+  consoleItem: {
+    id: '',
+    title: '',
+    description: '',
+    updatedAt: '',
+    console: [[]],
+  },
+  blocks: [[]],
+  addBlock(): void {},
+  addLine(): void {},
+  clearCurrentBlock(): void {},
+  removeCurrentBlock(): void {},
+  removeLine(): void {},
+  setCurrentBlock(): void {},
+  updateBlock(): void {},
+  updateInformation(): void {},
+});
 
 const ConsoleProvider = ({ id, children }: ProviderProps) => {
   const [consoleItem, setConsoleItem] = useState<ConsoleType>(getConsole(id));
