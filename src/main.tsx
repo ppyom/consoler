@@ -16,12 +16,13 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    children: [{ path: '/edit', element: <EditPage /> }],
+    children: [
+      { path: '/edit', element: <EditPage /> },
+      { path: '/edit/:id', element: <EditPage /> },
+    ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
+  <RouterProvider router={router} />,
 );

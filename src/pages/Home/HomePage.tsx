@@ -1,3 +1,5 @@
+import { getConsoleList } from '../../storages/consoleStorage.ts';
+import Card from '../../components/commons/Card/Card.tsx';
 import Button from '../../components/commons/Button/Button.tsx';
 import logo from '../../assets/images/logo-fill.svg';
 import styles from './HomePage.module.css';
@@ -17,7 +19,9 @@ const HomePage = () => {
       <section className={styles.recentHistory}>
         <h2>최근 작업 내역</h2>
         <div className={styles.list}>
-          {/* TODO Card 화면에 뿌려주는 부분 처리 */}
+          {Object.values(getConsoleList()).map((consoleItem) => (
+            <Card key={`card${consoleItem.id}`} {...consoleItem} />
+          ))}
         </div>
       </section>
     </main>

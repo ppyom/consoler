@@ -5,25 +5,18 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import {
-  createConsole,
-  getConsole,
-  updateConsole,
-} from '../storages/consoleStorage.ts';
+import { getConsole, updateConsole } from '../storages/consoleStorage.ts';
 import type { ConsoleBlock, ConsoleType } from '../types/console.ts';
 
 interface ProviderProps {
-  id?: string;
+  id: string;
   children: React.ReactNode;
 }
 
 const ConsoleContext = createContext({});
 
 const ConsoleProvider = ({ id, children }: ProviderProps) => {
-  const targetId = useMemo(() => id || createConsole(), [id]);
-  const [consoleItem, setConsoleItem] = useState<ConsoleType>(
-    getConsole(targetId),
-  );
+  const [consoleItem, setConsoleItem] = useState<ConsoleType>(getConsole(id));
   const [selectedBlock, setSelectedBlock] = useState<{
     line: number;
     id: string;
@@ -31,9 +24,9 @@ const ConsoleProvider = ({ id, children }: ProviderProps) => {
 
   const updateConsoleContents = useCallback(
     (console: ConsoleType) => {
-      updateConsole(targetId, { ...console });
+      updateConsole(id, { ...console });
     },
-    [targetId],
+    [id],
   );
 
   const blocks = useMemo(() => consoleItem.console, [consoleItem.console]);

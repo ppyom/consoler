@@ -1,4 +1,5 @@
 import React from 'react';
+import { removeConsole } from '../../../storages/consoleStorage.ts';
 import Button from '../Button/Button.tsx';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -10,11 +11,15 @@ interface CardProps extends CardType {
 }
 
 const Card: React.FC<CardProps> = ({
+  id,
   title,
   description,
   updatedAt,
   line = false,
 }) => {
+  const handleRemoveCard = () => {
+    removeConsole(id);
+  };
   return (
     <div className={`${styles.card} ${line ? styles.line : ''}`}>
       <div className={styles.info}>
@@ -23,10 +28,10 @@ const Card: React.FC<CardProps> = ({
         <p className={styles.date}>{updatedAt}</p>
       </div>
       <div className={styles.btnGroup}>
-        <Button>
+        <Button.Link to={`/edit/${id}`}>
           <EditIcon fontSize="small" />
-        </Button>
-        <Button>
+        </Button.Link>
+        <Button onClick={handleRemoveCard}>
           <DeleteIcon fontSize="small" />
         </Button>
       </div>
