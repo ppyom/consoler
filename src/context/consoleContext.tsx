@@ -104,6 +104,7 @@ const ConsoleProvider = ({ id, children }: ProviderProps) => {
   return (
     <ConsoleContext.Provider
       value={{
+        consoleItem,
         blocks,
         current: selectedBlock,
         setCurrentBlock,
