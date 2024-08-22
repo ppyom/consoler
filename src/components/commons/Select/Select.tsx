@@ -2,7 +2,7 @@ import React from 'react';
 import ReactSelect, { Props as ReactSelectProps } from 'react-select';
 import styles from './Select.module.css';
 
-interface Option<OptionType extends string> {
+interface Option<OptionType> {
   value: OptionType;
   label: OptionType;
 }
@@ -17,7 +17,7 @@ interface SelectProps<OptionType>
   onChange: (option: OptionType) => void;
 }
 
-const Select = <OptionType extends string>({
+const Select = <OptionType,>({
   labelText = '',
   options,
   onChange,
@@ -26,7 +26,7 @@ const Select = <OptionType extends string>({
   return (
     <div className={styles.selectContainer}>
       {labelText && <label>{labelText}</label>}
-      <ReactSelect
+      <ReactSelect<Option<OptionType>, false>
         classNames={{
           container: () => styles.select,
           control: (state) => {
@@ -40,7 +40,7 @@ const Select = <OptionType extends string>({
         }}
         options={options.map((option) => ({ value: option, label: option }))}
         onChange={(changeValue: Option<OptionType> | null) => {
-          onChange(changeValue?.value);
+          onChange(changeValue?.value || options[0]);
         }}
         {...props}
       />
