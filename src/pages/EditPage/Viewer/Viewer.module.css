@@ -6,6 +6,7 @@
       @apply flex items-baseline align-baseline;
       .block {
         @apply ring-2 ring-inset ring-gray-300;
+        @apply whitespace-pre;
         &.active {
           @apply ring-brand-secondary;
         }
