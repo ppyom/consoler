@@ -5,13 +5,16 @@ import ReactSelect, {
 } from 'react-select';
 import styles from './Select.module.css';
 
-type Option<T> = T;
+interface Option<T> {
+  value: T;
+  label: T;
+}
 
 interface SelectProps<T>
   extends Omit<ReactSelectProps, 'options' | 'onChange'> {
   labelText?: string;
-  options: Option<T>[];
-  onChange: (option: Option<T>) => void;
+  options: T[];
+  onChange: (option: T) => void;
 }
 
 const Select = <T extends string>({
@@ -37,9 +40,7 @@ const Select = <T extends string>({
           },
         }}
         options={options.map((option) => ({ value: option, label: option }))}
-        onChange={(
-          changeValue: OnChangeValue<{ value: T; label: T }, false>,
-        ) => {
+        onChange={(changeValue: OnChangeValue<Option<T>, false>) => {
           onChange(changeValue?.value);
         }}
         {...props}
