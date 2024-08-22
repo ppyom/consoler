@@ -1,5 +1,8 @@
 import React from 'react';
-import ReactSelect, { Props as ReactSelectProps } from 'react-select';
+import ReactSelect, {
+  Props as ReactSelectProps,
+  SingleValue,
+} from 'react-select';
 import styles from './Select.module.css';
 
 type Option<T> = T;
@@ -34,8 +37,8 @@ const Select = <T extends string>({
           },
         }}
         options={options.map((option) => ({ value: option, label: option }))}
-        onChange={(changeValue) => {
-          onChange(changeValue.value);
+        onChange={(changeValue: SingleValue<{ value: T; label: T }>) => {
+          onChange(changeValue?.value);
         }}
         {...props}
       />
