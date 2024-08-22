@@ -1,7 +1,8 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { HexAlphaColorPicker } from 'react-colorful';
 import Input from '../Input/Input.tsx';
 import styles from './ColorInput.module.css';
+import { hexRegExp, isHexColor } from '../../../utils/color.ts';
 
 interface ColorInputProps {
   labelText?: string;
@@ -14,54 +15,53 @@ const ColorInput: React.FC<ColorInputProps> = ({
   color,
   setColor,
 }) => {
-  const [_color, _setColor] = useState(color);
   const [active, setActive] = useState(false);
-  const hexPattern = useMemo(
-    () => /^#(([a-f0-9]{6}([a-f0-9]{2})?)|([a-f0-9]{3}([a-f0-9])?))$/i,
-    [],
-  );
 
-  const handleCloseColorPicker = useCallback(
-    ({ target }: MouseEvent) => {
-      if (!(target instanceof HTMLElement)) {
-        return;
-      }
-      if (!hexPattern.test(_color)) {
-        _setColor(color);
-      }
-      setActive(!!target.closest(`.${styles.colorPicker}`));
-      setColor(_color);
-    },
-    [_color, color, hexPattern, setColor],
-  );
-
-  useEffect(() => {
-    document.addEventListener('click', handleCloseColorPicker);
-    return () => {
-      document.removeEventListener('click', handleCloseColorPicker);
-    };
-  }, [handleCloseColorPicker]);
+  const handleCloseColorPicker = () => {
+    if (!isHexColor(color)) {
+      setColor('#000000');
+    }
+    setActive(false);
+  };
 
   return (
-    <div className={styles.colorPicker}>
-      <div className={styles.colorInputContainer}>
-        <Input
-          type="text"
-          labelText={labelText}
-          value={_color}
-          onChange={({ target }) => _setColor(target.value)}
-          pattern={hexPattern.source}
-        />
-        <div className={styles.colorChip} style={{ backgroundColor: _color }} />
+    <>
+      <div className={styles.colorPicker} onClick={() => setActive(true)}>
+        <div className={styles.colorInputContainer}>
+          <Input
+            type="text"
+            labelText={labelText}
+            value={color}
+            onChange={({ target }) => setColor(target.value)}
+            pattern={hexRegExp.source}
+          />
+          <div
+            className={styles.colorChip}
+            style={{ backgroundColor: color }}
+          />
+        </div>
+        {active && (
+          <HexAlphaColorPicker
+            className={styles.picker}
+            color={color}
+            onChange={setColor}
+          />
+        )}
       </div>
       {active && (
-        <HexAlphaColorPicker
-          className={styles.picker}
-          color={_color}
-          onChange={_setColor}
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            zIndex: 999,
+            width: '100%',
+            height: '100%',
+          }}
+          onClick={handleCloseColorPicker}
         />
       )}
-    </div>
+    </>
   );
 };
 

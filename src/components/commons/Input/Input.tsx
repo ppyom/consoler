@@ -7,7 +7,7 @@ interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
 
 const Input: React.FC<InputProps> = ({ labelText = '', ...props }) => {
   return (
-    <div className={`${styles.input} ${props.className}`}>
+    <div className={`${styles.input} ${props.className || ''}`}>
       {labelText && <label htmlFor={props.id}>{labelText}</label>}
       <input {...props} placeholder={props.placeholder || ' '} />
     </div>
