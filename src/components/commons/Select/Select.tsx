@@ -2,29 +2,31 @@ import React from 'react';
 import ReactSelect, { Props as ReactSelectProps } from 'react-select';
 import styles from './Select.module.css';
 
-interface Option<T> {
-  value: T;
-  label: T;
+interface Option<OptionType extends string> {
+  value: OptionType;
+  label: OptionType;
 }
 
-interface SelectProps<T>
-  extends Omit<ReactSelectProps<Option<T>, false>, 'options' | 'onChange'> {
+interface SelectProps<OptionType>
+  extends Omit<
+    ReactSelectProps<Option<OptionType>, false>,
+    'options' | 'onChange'
+  > {
   labelText?: string;
-  options: T[];
-  onChange: (option: T) => void;
+  options: OptionType[];
+  onChange: (option: OptionType) => void;
 }
 
-const Select = <T extends string>({
+const Select = <OptionType extends string>({
   labelText = '',
   options,
   onChange,
   ...props
-}: SelectProps<T>): React.ReactNode => {
+}: SelectProps<OptionType>): React.ReactNode => {
   return (
     <div className={styles.selectContainer}>
       {labelText && <label>{labelText}</label>}
       <ReactSelect
-        defaultValue={options && options[0]}
         classNames={{
           container: () => styles.select,
           control: (state) => {
@@ -37,7 +39,7 @@ const Select = <T extends string>({
           },
         }}
         options={options.map((option) => ({ value: option, label: option }))}
-        onChange={(changeValue: Option<T> | null) => {
+        onChange={(changeValue: Option<OptionType> | null) => {
           onChange(changeValue?.value);
         }}
         {...props}
