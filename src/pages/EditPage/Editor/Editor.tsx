@@ -5,6 +5,7 @@ import ColorInput from '../../../components/commons/ColorInput/ColorInput.tsx';
 import Select from '../../../components/commons/Select/Select.tsx';
 import Button from '../../../components/commons/Button/Button.tsx';
 import styles from './Editor.module.css';
+import { ConsoleBlock } from '../../../types/console.ts';
 
 const Editor = () => {
   const {
@@ -44,8 +45,14 @@ const Editor = () => {
 
   useEffect(() => {
     if (current) {
-      const { text, color, bgColor, fontSize, fontSizeUnit, fontWeight } =
-        blocks[current.line].find((b) => b.id === current.id);
+      const {
+        text,
+        color,
+        bgColor,
+        fontSize,
+        fontSizeUnit,
+        fontWeight,
+      }: ConsoleBlock = blocks[current.line].find((b) => b.id === current.id)!;
       setText(text || '');
       setColor(color || '#000000');
       setBgColor(bgColor || '#00000000');
@@ -68,13 +75,11 @@ const Editor = () => {
               onChange={({ target }) => setText(target.value)}
             />
             <ColorInput
-              id="color"
               color={color}
               setColor={setColor}
               labelText="글자 색상"
             />
             <ColorInput
-              id="bgColor"
               color={bgColor}
               setColor={setBgColor}
               labelText="배경 색상"
@@ -87,25 +92,19 @@ const Editor = () => {
                 value={fontSize}
                 onChange={({ target }) => setFontSize(parseInt(target.value))}
               />
-              <Select
+              <Select<'px' | 'rem'>
                 name="fontSizeUnit"
-                options={[
-                  { value: 'px', label: 'px' },
-                  { value: 'rem', label: 'rem' },
-                ]}
+                options={['px', 'rem']}
                 value={{ value: fontSizeUnit, label: fontSizeUnit }}
-                onChange={(option) => setFontSizeUnit(option.value)}
+                onChange={(option) => setFontSizeUnit(option)}
               />
             </div>
-            <Select
+            <Select<'normal' | 'bold'>
               name="fontWeight"
               labelText="글자 굵기"
-              options={[
-                { value: 'normal', label: 'normal' },
-                { value: 'bold', label: 'bold' },
-              ]}
+              options={['normal', 'bold']}
               value={{ value: fontWeight, label: fontWeight }}
-              onChange={(option) => setFontWeight(option.value)}
+              onChange={(option) => setFontWeight(option)}
             />
             <Button type="submit">저장</Button>
             <Button type="button" onClick={handleRemoveBtnClick}>
