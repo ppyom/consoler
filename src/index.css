@@ -4,3 +4,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  font-size: 16px;
+  @apply font-gowun-dodum text-gray-600;
+  @apply select-none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @apply font-noto-sans font-bold text-base-black;
+}
+h1 {
+  @apply text-4xl;
+}
+h2 {
+  @apply text-3xl;
+}
+h3 {
+  @apply text-2xl;
+}
+h4 {
+  @apply text-xl;
+}
+
+p.lg {
+  @apply text-lg text-gray-700;
+}
+p {
+  @apply text-base;
+}
+p.sm {
+  @apply text-sm text-gray-500;
+}
+
+#root {
+  @apply flex flex-col justify-between min-h-screen;
+}

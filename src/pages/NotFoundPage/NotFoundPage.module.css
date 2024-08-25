@@ -1,0 +1,12 @@
+body:has(.notFound) {
+  @apply h-screen flex justify-center items-center;
+}
+.notFound {
+  @apply flex flex-col justify-center items-center gap-4;
+  h1 {
+    @apply text-5xl text-brand-secondary;
+  }
+  a {
+    @apply text-brand-secondary;
+  }
+}

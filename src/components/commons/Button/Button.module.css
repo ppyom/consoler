@@ -1,0 +1,9 @@
+.btn {
+  @apply bg-brand-primary px-4 py-2 rounded-lg text-base-ivory;
+  &:hover {
+    @apply bg-shade-primary;
+  }
+  &:disabled {
+    @apply bg-gray-100 text-gray-300;
+  }
+}

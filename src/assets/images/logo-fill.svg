@@ -1,0 +1,22 @@
+<svg id="logo-fill" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 767.813 767.813">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 30px;
+        fill-rule: evenodd;
+      }
+      .cls-1 {
+        fill: #ebd19d;
+        stroke: #ebd19d;
+      }
+      .cls-2 {
+        fill: #3f97af;
+        stroke: #3f97af;
+      }
+    </style>
+  </defs>
+  <path id="큰별" class="cls-1" d="M439.919,169l127.3,232.986,262.768,37.955L597,567.237,559.051,830l-127.3-232.986L168.983,559.063l232.985-127.3Z" transform="translate(-115.578 -115.593)"/>
+  <path id="작은별" class="cls-2" d="M795.46,559.517L735.971,678.489,795.46,797.461,676.482,737.975,557.505,797.461l59.489-118.972L557.505,559.517,676.482,619Z" transform="translate(-115.578 -115.593)"/>
+</svg>

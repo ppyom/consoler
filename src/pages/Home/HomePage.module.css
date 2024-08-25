@@ -1,0 +1,42 @@
+.home {
+  @apply min-h-screen bg-base-ivory;
+  @apply flex flex-col justify-center items-center gap-8;
+  .logo {
+    img {
+      @apply w-60;
+    }
+    h1 {
+      @apply text-brand-secondary text-center;
+    }
+  }
+  .btnGroup {
+    @apply flex flex-col gap-2;
+    @apply max-w-80 w-full;
+    button {
+      @apply w-full;
+    }
+  }
+  .recentHistory {
+    @apply w-full overflow-hidden;
+    h2 {
+      @apply text-xl text-center;
+    }
+    .list {
+      @apply overflow-auto px-2 py-4;
+      @apply flex gap-2;
+      & > div {
+        @apply min-w-72;
+      }
+      &:empty::before {
+        content: "작업 내역이 존재하지 않습니다.";
+        @apply block w-full text-center;
+      }
+    }
+    *::-webkit-scrollbar {
+      @apply h-2;
+    }
+    *::-webkit-scrollbar-thumb {
+      @apply h-4 bg-brand-primary rounded;
+    }
+  }
+}

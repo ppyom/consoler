@@ -1,0 +1,29 @@
+.nav {
+  @apply text-center;
+  ul {
+    @apply flex justify-end gap-2;
+    li {
+      @apply min-w-[100px] relative;
+      a {
+        @apply block py-3 w-full;
+      }
+      &::after {
+        content: "";
+        @apply absolute top-full left-0;
+        @apply w-0 h-1 bg-brand-secondary/50 duration-500;
+      }
+      &:hover {
+        @apply text-brand-secondary;
+        &::after {
+          @apply w-full;
+        }
+      }
+      &.selected {
+        @apply text-brand-secondary;
+        &::after {
+          @apply w-full bg-brand-secondary;
+        }
+      }
+    }
+  }
+}
