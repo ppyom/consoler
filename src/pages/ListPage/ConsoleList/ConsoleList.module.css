@@ -1,0 +1,10 @@
+.listContainer {
+  @apply mt-4;
+  .count {
+    @apply my-2;
+    @apply font-bold;
+  }
+  .list {
+    @apply flex flex-col gap-2;
+  }
+}

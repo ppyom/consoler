@@ -1,0 +1,10 @@
+.searchForm {
+  @apply w-full mt-4;
+  @apply flex gap-2;
+  div:has(input) {
+    @apply flex-1;
+    input {
+      @apply text-center;
+    }
+  }
+}

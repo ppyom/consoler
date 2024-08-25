@@ -1,0 +1,7 @@
+.list {
+  @apply pt-4 pb-16 mx-auto max-w-screen-xl w-full;
+  h2 {
+    @apply mt-2 mb-4;
+    @apply text-brand-secondary;
+  }
+}
