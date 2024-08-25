@@ -1,13 +1,15 @@
 .block {
-  @apply ring-2 ring-inset ring-gray-300;
   @apply whitespace-pre;
-  &.active {
-    @apply ring-brand-secondary;
-  }
-  &:empty {
-    @apply border-2 border-gray-300 h-4;
+  &.viewer {
+    @apply ring-2 ring-inset ring-gray-300;
     &.active {
-      @apply border-brand-secondary;
+      @apply ring-brand-secondary;
+    }
+    &:empty {
+      @apply border-2 border-gray-300 h-4;
+      &.active {
+        @apply border-brand-secondary;
+      }
     }
   }
 }
