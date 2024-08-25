@@ -16,13 +16,21 @@ const SearchForm = () => {
     event.preventDefault();
     search();
   };
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = ({
+    target,
+  }) => {
+    setText(target.value);
+    if (target.value === '') {
+      search('');
+    }
+  };
 
   return (
     <form className={styles.searchForm} onSubmit={handleSubmit}>
       <Input
         placeholder="검색어를 입력해주세요."
         value={text}
-        onChange={({ target }) => setText(target.value)}
+        onChange={handleChange}
       />
       <Button>
         <Search />
