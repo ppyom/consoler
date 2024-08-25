@@ -1,5 +1,5 @@
 import { useConsole } from '../../../context/consoleContext.tsx';
-import Line from './Line.tsx';
+import Line from '../commons/Line/Line.tsx';
 import styles from './Viewer.module.css';
 
 const Viewer = () => {

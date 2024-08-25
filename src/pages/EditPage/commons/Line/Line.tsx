@@ -1,8 +1,8 @@
 import React from 'react';
-import { useConsole } from '../../../context/consoleContext.tsx';
-import Block from './Block/Block.tsx';
-import type { ConsoleBlock } from '../../../types/console.ts';
-import styles from './Viewer.module.css';
+import { useConsole } from '../../../../context/consoleContext.tsx';
+import Block from '../Block/Block.tsx';
+import type { ConsoleBlock } from '../../../../types/console.ts';
+import styles from './Line.module.css';
 
 interface LineProps {
   line: number;

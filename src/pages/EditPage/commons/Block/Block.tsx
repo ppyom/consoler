@@ -1,7 +1,7 @@
 import React from 'react';
 import { useConsole } from '../../../../context/consoleContext.tsx';
 import type { ConsoleBlock } from '../../../../types/console.ts';
-import styles from '../Viewer.module.css';
+import styles from './Block.module.css';
 
 interface BlockProps extends ConsoleBlock {
   line: number;
