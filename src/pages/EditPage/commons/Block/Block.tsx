@@ -3,7 +3,7 @@ import { useConsole } from '../../../../context/consoleContext.tsx';
 import type { ConsoleBlock } from '../../../../types/console.ts';
 import styles from './Block.module.css';
 
-interface CommonBlockProps extends ConsoleBlock {
+interface CommonBlockProps extends Partial<ConsoleBlock> {
   className?: string;
   onClick?: () => void;
 }
