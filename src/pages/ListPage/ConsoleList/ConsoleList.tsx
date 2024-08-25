@@ -7,7 +7,7 @@ const ConsoleList = () => {
   return (
     <div className={styles.listContainer}>
       <p className={styles.count}>총 {results.length}개</p>
-      <CardList className={styles.list} />
+      <CardList className={styles.list} line={true} />
     </div>
   );
 };
