@@ -12,9 +12,8 @@ const HomePage = () => {
         <h1>Consoler</h1>
       </div>
       <div className={styles.btnGroup}>
-        {/* TODO 각 링크로 이동할 수 있어야됨 */}
         <Button.Link to="/edit">Make Console</Button.Link>
-        <Button.Link to="/">Console List</Button.Link>
+        <Button.Link to="/list">Console List</Button.Link>
       </div>
       <section className={styles.recentHistory}>
         <h2>최근 작업 내역</h2>

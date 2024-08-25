@@ -4,6 +4,7 @@ import App from './App.tsx';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage.tsx';
 import HomePage from './pages/Home/HomePage.tsx';
 import EditPage from './pages/EditPage/EditPage.tsx';
+import ListPage from './pages/ListPage/ListPage.tsx';
 import './index.css';
 
 const router = createBrowserRouter([
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
     children: [
       { path: '/edit', element: <EditPage /> },
       { path: '/edit/:id', element: <EditPage /> },
+      { path: '/list', element: <ListPage /> },
     ],
   },
 ]);
