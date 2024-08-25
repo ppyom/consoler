@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Search } from '@mui/icons-material';
-import { useSearch } from '../../../context/searchContext.tsx';
+import { useSearch } from '../../../context/cardContext.tsx';
 import Input from '../../../components/commons/Input/Input.tsx';
 import Button from '../../../components/commons/Button/Button.tsx';
 import styles from './SearchForm.module.css';

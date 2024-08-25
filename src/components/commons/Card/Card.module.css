@@ -25,4 +25,7 @@
       @apply flex-row;
     }
   }
+  &:hover {
+    @apply bg-shade-tertiary;
+  }
 }
