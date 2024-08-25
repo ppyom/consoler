@@ -14,7 +14,7 @@ const createConsole = () => {
   const id = Date.now().toString();
   consoleList[id] = {
     id,
-    title: '',
+    title: '제목 없음',
     description: '',
     updatedAt: moment().format('YYYY-MM-DD HH:mm:ss'),
     console: [[]],
