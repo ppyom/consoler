@@ -1,0 +1,11 @@
+.previewContainer {
+  @apply flex flex-col gap-2 h-full;
+  .preview {
+    @apply flex-1 p-2;
+    @apply border-2 border-gray-300 rounded-md;
+    @apply overflow-auto;
+  }
+  &::after {
+    content: "지금 보이는 화면은 실제 사용했을 때와 다를 수도 있습니다.";
+  }
+}

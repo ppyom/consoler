@@ -1,0 +1,15 @@
+.block {
+  @apply whitespace-pre;
+  &.viewer {
+    @apply ring-2 ring-inset ring-gray-300;
+    &.active {
+      @apply ring-brand-secondary;
+    }
+    &:empty {
+      @apply border-2 border-gray-300 h-4;
+      &.active {
+        @apply border-brand-secondary;
+      }
+    }
+  }
+}

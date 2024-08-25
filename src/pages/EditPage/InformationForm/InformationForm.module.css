@@ -1,0 +1,4 @@
+.information {
+  @apply mx-auto mb-8 max-w-[500px] w-full;
+  @apply flex flex-col gap-2;
+}

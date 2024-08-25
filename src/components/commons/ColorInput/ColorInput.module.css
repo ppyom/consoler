@@ -1,0 +1,20 @@
+.colorPicker {
+  @apply relative w-full;
+  .colorInputContainer {
+    @apply flex justify-between items-end w-full;
+    input:invalid {
+      @apply border-red-500;
+    }
+    & > div:has(input) {
+      @apply w-full;
+    }
+    .colorChip {
+      @apply w-10 h-10 mx-1 rounded-full;
+      @apply border-2 border-gray-100;
+    }
+  }
+  .picker {
+    @apply absolute z-[9999] top-full left-1/2 -translate-x-2/4;
+    @apply p-4 bg-base-ivory rounded-lg shadow-lg max-w-96 w-full;
+  }
+}

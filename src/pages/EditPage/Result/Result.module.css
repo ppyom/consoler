@@ -1,0 +1,13 @@
+.resultContainer {
+  .tabBtn {
+    @apply bg-shade-tertiary text-base-black border-b-2 border-transparent;
+    @apply w-24 p-4 mr-1.5 rounded-b-none;
+    &.active {
+      @apply bg-brand-tertiary text-brand-secondary border-brand-secondary;
+    }
+  }
+  .result {
+    @apply h-[550px] p-4;
+    @apply rounded-b-lg shadow-lg;
+  }
+}

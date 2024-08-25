@@ -1,0 +1,24 @@
+.selectContainer {
+  @apply flex flex-col sm:flex-row sm:items-center;
+  label {
+    @apply flex-[1] sm:max-w-32;
+  }
+  .select {
+    @apply flex-[3];
+    .control {
+      @apply border-none rounded-md shadow-none;
+      @apply bg-base-ivory p-1;
+      &.focused {
+        @apply bg-brand-tertiary;
+      }
+    }
+    .option {
+      &.focused {
+        @apply bg-shade-primary;
+      }
+      &.selected {
+        @apply bg-brand-primary;
+      }
+    }
+  }
+}

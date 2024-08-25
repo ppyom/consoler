@@ -5,7 +5,7 @@ const Navbar = () => {
   const location = useLocation();
   const menu = [
     { name: 'Home', path: '/' },
-    { name: 'Make', path: '/make' },
+    { name: 'Make', path: '/edit' },
     { name: 'List', path: '/list' },
   ];
   return (

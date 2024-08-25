@@ -1,0 +1,25 @@
+.input {
+  @apply flex flex-col sm:flex-row sm:items-center;
+  label {
+    @apply flex-[1] sm:max-w-32;
+  }
+  input {
+    @apply flex-[3] p-2;
+    @apply outline-none border-b-2 rounded-md;
+    @apply transition-colors;
+    &::placeholder,
+    &::-webkit-input-placeholder {
+      @apply text-gray-300;
+    }
+    &:focus {
+      @apply border-brand-primary;
+    }
+    &:disabled {
+      @apply bg-gray-100 border-gray-500;
+    }
+  }
+}
+
+:global(input:not(:placeholder-shown)) {
+  @apply border-shade-primary;
+}

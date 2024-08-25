@@ -1,0 +1,6 @@
+.line {
+  @apply flex items-baseline align-baseline;
+  & > button {
+    @apply self-stretch mr-4;
+  }
+}
