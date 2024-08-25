@@ -1,10 +1,10 @@
 import React from 'react';
-import { removeConsole } from '../../../storages/consoleStorage.ts';
 import Button from '../Button/Button.tsx';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import styles from './Card.module.css';
 import type { CardType } from '../../../types/card.ts';
+import { useSearch } from '../../../context/cardContext.tsx';
 
 interface CardProps extends CardType {
   line?: boolean;
@@ -17,8 +17,9 @@ const Card: React.FC<CardProps> = ({
   updatedAt,
   line = false,
 }) => {
+  const { removeCard } = useSearch();
   const handleRemoveCard = () => {
-    removeConsole(id);
+    removeCard(id);
   };
   return (
     <div className={`${styles.card} ${line ? styles.line : ''}`}>
